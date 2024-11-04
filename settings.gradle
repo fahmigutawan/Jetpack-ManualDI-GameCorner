@@ -20,5 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Manual DI Game Corner"
-include(":app")
- 
+include ':app'

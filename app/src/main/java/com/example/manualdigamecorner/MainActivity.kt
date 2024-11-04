@@ -11,6 +11,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.manualdigamecorner.presentation.devices.DevicesScreen
+import com.example.manualdigamecorner.presentation.guide.GuideScreen
+import com.example.manualdigamecorner.presentation.mainmenu.MainMenuScreen
 import com.example.manualdigamecorner.ui.theme.ManualDIGameCornerTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,12 +24,41 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
             ManualDIGameCornerTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    NavHost(
+                        modifier = Modifier.padding(innerPadding),
+                        navController = navController,
+                        startDestination = "main"
+                    ) {
+                        composable("main") {
+                            MainMenuScreen(
+                                onGuideClick = {
+                                    navController.navigate("guide")
+                                },
+                                onDeviceClick = {
+                                    navController.navigate("device")
+                                }
+                            )
+                        }
+
+                        composable("guide") {
+                            GuideScreen(
+                                onBackClick = {
+                                    navController.popBackStack()
+                                }
+                            )
+                        }
+
+                        composable("device") {
+                            DevicesScreen(
+                                onBackClick = {
+                                    navController.popBackStack()
+                                }
+                            )
+                        }
+                    }
                 }
             }
         }
