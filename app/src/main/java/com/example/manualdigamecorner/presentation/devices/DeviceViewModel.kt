@@ -1,5 +1,4 @@
 package com.example.manualdigamecorner.presentation.devices
-
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -11,7 +10,6 @@ import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.gson.gson
 import kotlinx.coroutines.launch
-
 class DeviceViewModel : ViewModel() {
     private val httpClient = HttpClient(Android){
         install(ContentNegotiation){
@@ -23,7 +21,6 @@ class DeviceViewModel : ViewModel() {
     )
     val devices = mutableStateListOf<SingleDeviceResponse>()
     val shownDeviceId = mutableStateOf("")
-
     init {
         viewModelScope.launch {
             repository.getAllDevice().collect{

@@ -1,5 +1,4 @@
 package com.example.manualdigamecorner.presentation.guide
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -33,7 +32,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.manualdigamecorner.R
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GuideScreen(
@@ -42,7 +40,6 @@ fun GuideScreen(
     val screenWidth = LocalConfiguration.current.screenWidthDp
     val imgHeight = screenWidth * 256 / 383
     val viewModel = viewModel<GuideViewModel>()
-
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -80,7 +77,6 @@ fun GuideScreen(
                     contentScale = ContentScale.Crop
                 )
             }
-
             Text(
                 modifier = Modifier
                     .padding(top = 16.dp)
@@ -90,7 +86,6 @@ fun GuideScreen(
                 fontWeight = FontWeight.Bold,
                 color = Color(0xff2563EB)
             )
-
             if (viewModel.guides.isEmpty()) {
                 CircularProgressIndicator(
                     modifier = Modifier

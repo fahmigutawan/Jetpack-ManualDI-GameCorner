@@ -1,5 +1,4 @@
 package com.example.manualdigamecorner.presentation.devices
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -25,14 +24,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.manualdigamecorner.components.DeviceCard
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DevicesScreen(
     onBackClick:() -> Unit
 ) {
     val viewModel = viewModel<DeviceViewModel>()
-
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -71,7 +68,6 @@ fun DevicesScreen(
                     }
                 }
             }
-
             items(viewModel.devices) { item ->
                 DeviceCard(
                     modifier = Modifier.padding(horizontal = 24.dp),

@@ -1,5 +1,4 @@
 package com.example.manualdigamecorner.presentation.guide
-
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,7 +9,6 @@ import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.gson.gson
 import kotlinx.coroutines.launch
-
 class GuideViewModel : ViewModel(){
     private val httpClient = HttpClient(Android){
         install(ContentNegotiation){
@@ -21,7 +19,6 @@ class GuideViewModel : ViewModel(){
         httpClient
     )
     val guides = mutableStateListOf<SingleGuideStepResponse>()
-
     init {
         viewModelScope.launch {
             repository.getAllGuide().collect{
