@@ -19,6 +19,8 @@ class DeviceViewModel : ViewModel() {
     private val repository = Repository(
         httpClient
     )
+
+    val deviceTitle = repository.getDeviceTitle()
     val devices = mutableStateListOf<SingleDeviceResponse>()
     val shownDeviceId = mutableStateOf("")
     init {

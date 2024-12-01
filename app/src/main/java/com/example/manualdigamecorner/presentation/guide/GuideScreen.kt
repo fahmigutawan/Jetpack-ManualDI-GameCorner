@@ -45,7 +45,7 @@ fun GuideScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = "Petunjuk Penggunaan",
+                        text = viewModel.guideTitle,
                         fontWeight = FontWeight.Medium,
                         fontSize = 16.sp
                     )

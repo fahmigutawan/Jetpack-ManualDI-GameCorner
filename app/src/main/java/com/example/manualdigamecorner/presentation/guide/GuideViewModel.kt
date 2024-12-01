@@ -18,6 +18,7 @@ class GuideViewModel : ViewModel(){
     private val repository = Repository(
         httpClient
     )
+    val guideTitle = repository.getGuideTitle()
     val guides = mutableStateListOf<SingleGuideStepResponse>()
     init {
         viewModelScope.launch {

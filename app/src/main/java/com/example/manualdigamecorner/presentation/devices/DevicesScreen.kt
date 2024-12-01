@@ -35,7 +35,7 @@ fun DevicesScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = "Perangkat",
+                        text = viewModel.deviceTitle,
                         fontWeight = FontWeight.Medium,
                         fontSize = 16.sp
                     )
