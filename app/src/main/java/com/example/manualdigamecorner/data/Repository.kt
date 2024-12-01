@@ -24,8 +24,6 @@ class Repository (
             emit(body)
         }
     }
-
     fun getGuideTitle() = "Petunjuk Penggunaan"
-
     fun getDeviceTitle() = "Perangkat"
 }
