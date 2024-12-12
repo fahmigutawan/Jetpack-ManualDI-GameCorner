@@ -36,6 +36,7 @@ class ExampleStartupBenchmark {
         button.click()
         while (true) {
             if(device.findObject(By.text("Petunjuk Penggunaan")) != null){
+                this.pressHome()
                 break
             }
         }
@@ -53,6 +54,7 @@ class ExampleStartupBenchmark {
         button.click()
         while (true) {
             if(device.findObject(By.text("Perangkat")) != null){
+                this.pressHome()
                 break
             }
         }
